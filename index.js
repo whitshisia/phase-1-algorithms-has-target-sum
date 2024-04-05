@@ -1,6 +1,22 @@
 function hasTargetSum(array, target) {
   // Write your algorithm here
+    const seen = new Set();
+
+    for (const num of array) {
+        const diff = target - num;
+        
+        if (seen.has(diff)) {
+            return true;
+        }
+        
+        seen.add(num);
+    }
+    
+    return false;
 }
+
+// Test cases
+console.log(hasTargetSum([3, 8, 12, 4, 11, 7], 10));  // true
 
 /* 
   Write the Big O time complexity of your function here
